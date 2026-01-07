@@ -8,7 +8,7 @@ import Product from '@/components/dashboard/Product'
 import Location from '@/components/dashboard/Location'
 
 const LandingPage = ({ data }) => {
-  const { heroData, aboutUs } = data;
+  const { heroData, aboutUs, experience, product } = data;
 
   if (!data) {
     return <div>Loading...</div>
@@ -18,8 +18,8 @@ const LandingPage = ({ data }) => {
     <>
       <Hero heroData={heroData} />
       <AboutUs aboutUsData={aboutUs} />
-      <Experience />
-      <Product />
+      <Experience experienceData={experience} />
+      <Product productData={product} />
       <Location />
     </>
   )
@@ -29,28 +29,23 @@ export default LandingPage
 
 
 export async function getStaticProps() {
-  const query = `*[_type == "aboutUs"][0]{
-    title,
-    subtitle,
-    ctaText,
-    ctaLink,
-    image
-  }`
-
-
 
   const heroData = await client.fetch(`*[_type == "hero"][0]`)
-  const aboutUs = await client.fetch(query)
+  const aboutUs = await client.fetch(`*[_type == "aboutUs"][0]`)
+  const experienceData = await client.fetch(`*[_type == "experience"]`)
+  const productData = await client.fetch(`*[_type == "product"]`)
 
   const data = {
     heroData: heroData,
     aboutUs: aboutUs,
+    experience: experienceData,
+    product: productData
   }
 
   return {
     props: {
       data
     },
-    revalidate: 60, // ISR: revalidate tiap 60 detik
+    revalidate: 60,
   }
 }
