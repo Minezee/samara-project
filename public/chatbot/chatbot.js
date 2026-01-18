@@ -1,8 +1,5 @@
+const whatsappNumber = "087893991888";
 
-// nomor WhatsApp admin
-const whatsappNumber = "6281xxxxxxxxx";
-
-// Knowledge Base dengan Sinonim Luas & Detail Produk
 const knowledgeBase = {
     id: {
         faq: [
@@ -116,13 +113,10 @@ function waitForChatElements() {
 
 waitForChatElements();
 
-
-// Utility: escape regex
 function escapeRegex(str) {
     return str.replace(/[.*+?^${ }()|[\]\\]/g, '\\$&');
 }
 
-// Improved keyword match: word boundary, handle simple plural 's'
 function isKeywordMatch(normalizedMsg, keyword) {
     if (!keyword) return false;
     const k = String(keyword).toLowerCase().trim();
@@ -135,7 +129,6 @@ function isKeywordMatch(normalizedMsg, keyword) {
     return normalizedMsg.indexOf(k) !== -1;
 }
 
-// Functions
 function openChat() {
     chatContainer.classList.add('active');
     if (!currentLanguage) {
@@ -252,7 +245,6 @@ function processMessage(message) {
         }
     }
 
-    // Cek ORDER/BELI keywords - langsung ke WhatsApp
     const orderKeywords = ['order', 'pesan', 'beli', 'mau beli', 'mau pesan', 'buy', 'purchase', 'checkout', 'payment', 'bayar'];
     for (let keyword of orderKeywords) {
         if (isKeywordMatch(normalizedMsg, keyword)) {
@@ -266,7 +258,6 @@ function processMessage(message) {
         }
     }
 
-    // Cek FAQ (General Intents)
     for (let item of kb.faq) {
         for (let keyword of item.keywords) {
             if (isKeywordMatch(normalizedMsg, keyword)) {
@@ -275,7 +266,6 @@ function processMessage(message) {
         }
     }
 
-    // Cek Produk Spesifik (Keyword Match)
     for (let product of kb.products) {
         for (let keyword of product.keywords) {
             if (isKeywordMatch(normalizedMsg, keyword)) {
@@ -287,7 +277,6 @@ function processMessage(message) {
         }
     }
 
-    // Jika tidak ada yang cocok, cek apakah pertanyaan kompleks
     if (isComplexQuestion(message)) {
         return () => {
             const msg = currentLanguage === 'en'
@@ -298,7 +287,6 @@ function processMessage(message) {
         };
     }
 
-    // Default response untuk pertanyaan tidak dikenali
     return { text: getDefaultResponse(), intent: 'unknown' };
 }
 
