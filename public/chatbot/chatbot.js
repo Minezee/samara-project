@@ -1,4 +1,4 @@
-const whatsappNumber = "085122602002";
+const whatsappNumber = "6285122602002";
 
 const knowledgeBase = {
     id: {
@@ -355,7 +355,7 @@ function openWhatsAppDirect() {
     const text = currentLanguage === 'en'
         ? "Hello Samara Chocolates, I need assistance with..."
         : "Halo Samara Chocolates, saya butuh bantuan mengenai...";
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/${whatsappNumber}?text=${text}`;
     window.open(url, '_blank');
 }
 
