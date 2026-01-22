@@ -1,4 +1,4 @@
-const whatsappNumber = "087893991888";
+const whatsappNumber = "085122602002";
 
 const knowledgeBase = {
     id: {
