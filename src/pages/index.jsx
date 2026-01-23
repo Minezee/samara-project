@@ -23,8 +23,6 @@ const LandingPage = ({ data }) => {
     "name": "Samara Chocolate",
     "alternateName": ["Samara", "Samara Chocolate"],
     "url": "https://samarachocolate.com",
-    "image": urlFor(heroData?.image),
-    "description": "Premium artisan chocolate crafted from finest Indonesian cacao. Experience luxury chocolate collections, boutique experiences, and the art of chocolate making.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": location?.address || "Your Street Address",
@@ -48,8 +46,8 @@ const LandingPage = ({ data }) => {
       <HeadSeo
         title="Home | Samara"
         siteName="Samara Chocolate"
-        description={"Situs Jual Beli Top Up Mobile Legends, Ragnarok, Free Fire, PUBG Mobile, CODM dan banyak lagi, Termurah☑️ Terlengkap☑️ Via e-Money☑️ Pengiriman instan."}
-        image={"/assets/images / openGraph.jpg"}
+        description={"Premium artisan chocolate crafted from finest Indonesian cacao. Experience luxury chocolate collections, boutique experiences, and the art of chocolate making."}
+        image={urlFor(heroData?.image)}
         structuredData={structuredData}
       />
       <Hero heroData={heroData} />
