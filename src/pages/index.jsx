@@ -12,6 +12,7 @@ import HeadSeo from '@/components/HeadSeo'
 
 const LandingPage = ({ data }) => {
   const { heroData, aboutUs, experience, product, location, difference } = data;
+  const images = urlFor(heroData?.image);
 
   if (!data) {
     return <div>Loading...</div>
@@ -19,10 +20,13 @@ const LandingPage = ({ data }) => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "WebSite",
     "name": "Samara Chocolate",
     "alternateName": ["Samara", "Samara Chocolate"],
     "url": "https://samarachocolate.com",
+    "image": [
+      String(images)
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": location?.address || "Your Street Address",
@@ -47,7 +51,7 @@ const LandingPage = ({ data }) => {
         title="Home | Samara"
         siteName="Samara Chocolate"
         description={"Premium artisan chocolate crafted from finest Indonesian cacao. Experience luxury chocolate collections, boutique experiences, and the art of chocolate making."}
-        image={urlFor(heroData?.image)}
+        image={String(images)}
         structuredData={structuredData}
       />
       <Hero heroData={heroData} />
