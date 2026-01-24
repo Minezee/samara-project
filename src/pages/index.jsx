@@ -12,7 +12,7 @@ import HeadSeo from '@/components/HeadSeo'
 
 const LandingPage = ({ data }) => {
   const { heroData, aboutUs, experience, product, location, difference } = data;
-  const images = urlFor(heroData?.image);
+  const images = urlFor(heroData[0]?.image);
 
   if (!data) {
     return <div>Loading...</div>
@@ -67,7 +67,7 @@ const LandingPage = ({ data }) => {
 export default LandingPage
 
 export async function getStaticProps() {
-  const heroData = await client.fetch(`*[_type == "hero"][0]`)
+  const heroData = await client.fetch(`*[_type == "hero"]`)
   const aboutUs = await client.fetch(`*[_type == "aboutUs"][0]`)
   const experienceData = await client.fetch(`*[_type == "experience"]`)
   const productData = await client.fetch(`*[_type == "product"]`)
@@ -75,6 +75,8 @@ export async function getStaticProps() {
   const locationData = await client.fetch(`*[_type == "visitUs"][0]`)
   const differenceData = await client.fetch(`*[_type == "difference"][0]`)
   const footerData = await client.fetch(`*[_type == "footer"][0]`)
+
+  console.log(heroData)
 
   let embedUrl = null
   if (locationData?.mapUrl) {

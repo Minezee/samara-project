@@ -6,7 +6,7 @@ import { formatRupiah } from '../../../utils/helpers/formatRupiah'
 const Product = ({ productData }) => {
     return (
         <section id='product' className='py-12 md:py-16 lg:py-20 bg-tertiary'>
-            <div className='mb-10'>
+            <div className='mb-10 container'>
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary">{productData?.title}</h2>
                 {productData?.description &&
                     <p className="text-secondary text-sm sm:text-base lg:text-base xl:text-lg 2xl:text-xl leading-relaxed mt-4 text-center">{productData?.description}</p>

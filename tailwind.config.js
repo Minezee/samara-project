@@ -19,6 +19,7 @@ module.exports = {
       },
       fontFamily: {
         haviland: ['Mr De Haviland', ...defaultTheme.fontFamily.sans],
+        dancing: ['Dancing Script', ...defaultTheme.fontFamily.sans]
       },
     },
     container: {

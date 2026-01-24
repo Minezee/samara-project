@@ -20,7 +20,7 @@ const AboutUs = ({ aboutUsData }) => {
                     <h2 className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-4 lg:mb-6 text-primary leading-tight">
                         {aboutUsData?.title}
                     </h2>
-                    <p className="text-secondary text-sm sm:text-base lg:text-base xl:text-lg 2xl:text-xl leading-relaxed mb-6 lg:mb-8">
+                    <p className="text-secondary text-justify text-sm sm:text-base lg:text-base xl:text-lg 2xl:text-xl leading-relaxed mb-6 lg:mb-8">
                         {aboutUsData?.subtitle}
                     </p>
                     <div className='flex items-center justify-center'>

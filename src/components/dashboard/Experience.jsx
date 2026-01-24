@@ -16,7 +16,7 @@ const Experience = ({ experienceData }) => {
                             />
                         </div>
                         <h2 className=" text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold mt-10 text-center text-primary">{experience?.title}</h2>
-                        <p className="text-secondary text-sm sm:text-base lg:text-base xl:text-lg 2xl:text-xl leading-relaxed mt-4 text-center">{experience?.description}</p>
+                        <p className="text-secondary text-sm sm:text-base lg:text-base xl:text-lg 2xl:text-xl leading-relaxed mt-4 text-justify">{experience?.description}</p>
                     </div>
                     <Link target='_blank' href={experience?.ctaLink} className='mt-4 bg-primary hover:bg-primary/95 transition-colors rounded-full px-8 py-2 lg:py-2.5 text-white font-bold text-lg sm:text-xl lg:text-xl xl:text-2xl inline-block shadow-md hover:shadow-lg'>
                         {experience?.ctaText}
